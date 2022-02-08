@@ -34,7 +34,7 @@ def test():
     return "Hello Test"
 
 @app.route('/scrape/<lat>/<long>', methods=['POST', "GET"])
-async def scrapeData(lat, long):
+def scrapeData(lat, long):
     try:
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
         driver.get("https://www.google.com/maps/search/COVID-19+Vaccine/@{},{},13z".format(lat, long))
